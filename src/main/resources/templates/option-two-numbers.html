@@ -1,0 +1,42 @@
+<div th:replace="header"></div>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="card mt-5 col-lg-8">
+
+            <div class="card-body">
+            <form name="valMessage" id="valMessage" method="POST" action="/twonumber">
+                <div class="mb2 bg-light">
+                        It is expected to find all perfect numbers between two numbers.
+                </div>
+                <div class="mb-3">
+                    <label for="numberOne" class="form-label">Enter a number one</label>
+                    <input type="number" min="1" oninput="validity.valid||(value='');" required
+                           class="form-control" id="numberOne"
+                           name="numberOne"
+                           th:value="${numberOne}">
+
+
+                    <label for="numberTwo" class="form-label">Enter a number two</label>
+                    <input type="number" min="1" oninput="validity.valid||(value='');" class="form-control"
+                           id="numberTwo"
+                           name="numberTwo"
+                           th:value="${numberTwo}">
+
+
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+            </div>
+            <div class="card-footer">
+            <p>Result:</p>
+            <ul class="list">
+                <li th:each="number : ${ list }">
+                    <p th:text="${ number }"></p></li>
+            </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:replace="footer"></div>

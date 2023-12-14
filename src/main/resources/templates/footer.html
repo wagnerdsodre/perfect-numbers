@@ -1,0 +1,43 @@
+
+
+
+<div class="footer text-light bg-dark">
+    <span>2023 - Todos os direitos reservados</span>
+    <span class="developed">Developed by <i class="fa fa-heart" style="font-size:15px;color:red;"></i> Wagner Sodré</span>
+</div>
+<script>
+
+    $(document).ready(function () {
+
+
+        $("#valMessage").validate({
+            rules: {
+                numberOne: {
+                    required: true,
+                    min: 1,
+                    max: function () {
+                        var maxValue = $('#numberTwo').val() == 0 ? '' : $('#numberTwo').val();
+                        return parseInt(maxValue)
+                    }
+                },
+                numberTwo: {
+                    required: true,
+                    min: 1
+                },
+                messages: {
+                    numberOne: {
+                        required: "é obrigatório",
+                        max: "O valor deve ser menor que o segundo número"
+                    }
+                }
+            }
+
+
+
+        })
+
+    })
+</script>
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+<div th:replace="header"></div>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="card mt-5 col-lg-8">
+            <div class="card-header">
+                    It is expected to find one perfect numbers.
+            </div>
+
+            <div class="card-body">
+            <form action="/number" method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="FormControlInputNumberOne">Enter a number one</label>
+                    <input class="form-control" id="FormControlInputNumberOne" min="1" name="oneNumber"
+                           oninput="validity.valid||(value='');"
+                           required th:value="${oneNumber}" type="number">
+                </div>
+                <button class="btn btn-primary" type="submit">Send</button>
+            </form>
+            <div class="card-footer">
+                <p>Result:</p>
+
+                <p th:text="${ oneNumber }"></p>
+                <p th:text="${ erros }"></p>
+
+            </div>
+
+
+        </div>
+        </div>
+    </div>
+</div>
+<div th:replace="footer"></div>
